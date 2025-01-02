@@ -5,8 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="output.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1 class="font-bold bg-red-400">Hello world!</h1>
-    <script src="script.js"></script>
+  <body class="flex flex-col">
+    <h1
+      class="font-serif font-bold h-6 w-40 m-auto bg-orange-800 flex justify-center"
+    >
+      Simple Form
+    </h1>
+    <form
+      class="flex flex-row w-[900px] h-auto m-auto bg-neutral-700"
+      type="submit"
+    >
+      <label class="bg-blue-200">Name </label>
+
+      <input type="text" name="Name" class="border outline-none" />
+      <label class="bg-blue-200">Last Name </label>
+
+      <input type="text" name="Last Name" class="border outline-none" />
+      <label class="bg-blue-200">Age </label>
+
+      <input type="number" name="Age" class="border outline-none" />
+
+      <button class="bg-red-500 w-48">Save</button>
+    </form>
+
+    <table class="border w-[900px] m-auto">
+      <tr class="border">
+        <th class="border">No</th>
+        <th class="border">Name</th>
+        <th class="border">Last Name</th>
+        <th class="border">Age</th>
+        <th class="border">Action</th>
+      </tr>
+      <tr class="border bg-gray-400 align-middle">
+        <td class="border align-middle">
+          <span class="flex items-center justify-center">01</span>
+        </td>
+        <td class="border">
+          <span class="flex items-center justify-center">Name</span>
+        </td>
+        <td class="border">
+          <span class="flex items-center justify-center">Last Name</span>
+        </td>
+        <td class="border">
+          <span class="flex items-center justify-center">Age</span>
+        </td>
+        <td class="border">
+          <div class="flex items-center justify-around">
+            <button class="bg-slate-400">Edit</button>
+            <button class="bg-slate-600">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
