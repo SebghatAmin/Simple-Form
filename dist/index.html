@@ -5,7 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="output.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1 class="bg-blue-500">Hello world!</h1>
+  <body class="flex flex-col">
+    <h1
+      class="font-serif font-bold h-6 w-40 m-auto bg-orange-800 flex justify-center"
+    >
+      Simple Form
+    </h1>
+    <form
+      class="flex flex-row w-[900px] h-auto m-auto bg-neutral-700"
+      type="submit"
+    >
+      <label class="bg-blue-200">Name </label>
+
+      <input type="text" name="Name" class="border outline-none" />
+      <label>Last Name </label>
+
+      <input type="text" name="Last Name" class="border outline-none" />
+      <label>Age </label>
+
+      <input type="number" name="Age" class="border outline-none" />
+
+      <button class="bg-red-500">Save</button>
+    </form>
+
+    <table class="border w-[900px] m-auto">
+      <tr class="border">
+        <th class="border">No</th>
+        <th class="border">Name</th>
+        <th class="border">Last Name</th>
+        <th class="border">Age</th>
+        <th class="border">Action</th>
+      </tr>
+      <tr class="border">
+        <td class="border">01</td>
+        <td class="border">Amin</td>
+        <td class="border">Hayayee</td>
+        <td class="border">22</td>
+        <td class="border">Edit , Delete</td>
+      </tr>
+    </table>
   </body>
 </html>
