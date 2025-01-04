@@ -1,61 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="output.css" rel="stylesheet" />
+    <title>Simple Form</title>
   </head>
-  <body class="flex flex-col">
-    <h1
-      class="font-serif font-bold h-6 w-40 m-auto bg-orange-800 flex justify-center"
-    >
-      Simple Form
-    </h1>
-    <form
-      class="flex flex-row w-[900px] h-auto m-auto bg-neutral-700"
-      type="submit"
-    >
-      <label class="bg-blue-200">Name </label>
+  <body class="min-h-screen bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-6">
+      <h1 class="text-2xl font-bold text-center mb-6">
+        Simple Form and Table with Tailwind CSS and JavaScript
+      </h1>
 
-      <input type="text" name="Name" class="border outline-none" />
-      <label class="bg-blue-200">Last Name </label>
-
-      <input type="text" name="Last Name" class="border outline-none" />
-      <label class="bg-blue-200">Age </label>
-
-      <input type="number" name="Age" class="border outline-none" />
-
-      <button class="bg-red-500 w-48">Save</button>
-    </form>
-
-    <table class="border w-[900px] m-auto">
-      <tr class="border">
-        <th class="border">No</th>
-        <th class="border">Name</th>
-        <th class="border">Last Name</th>
-        <th class="border">Age</th>
-        <th class="border">Action</th>
-      </tr>
-      <tr class="border bg-gray-400 align-middle">
-        <td class="border align-middle">
-          <span class="flex items-center justify-center">01</span>
-        </td>
-        <td class="border">
-          <span class="flex items-center justify-center">Name</span>
-        </td>
-        <td class="border">
-          <span class="flex items-center justify-center">Last Name</span>
-        </td>
-        <td class="border">
-          <span class="flex items-center justify-center">Age</span>
-        </td>
-        <td class="border">
-          <div class="flex items-center justify-around">
-            <button class="bg-slate-400">Edit</button>
-            <button class="bg-slate-600">Delete</button>
+      <form
+        id="dataForm"
+        class="p-4 border-2 border-gray-300 rounded-lg mb-6 bg-white"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="name" class="block font-semibold mb-1">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
+              placeholder="Enter first name"
+            />
           </div>
-        </td>
-      </tr>
-    </table>
+
+          <div>
+            <label for="lastName" class="block font-semibold mb-1"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              id="lastName"
+              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
+              placeholder="Enter last name"
+            />
+          </div>
+
+          <div>
+            <label for="age" class="block font-semibold mb-1">Age</label>
+            <input
+              type="number"
+              id="age"
+              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
+              placeholder="Enter age"
+              min="1"
+            />
+          </div>
+        </div>
+
+        <button
+          type="button"
+          id="addDataBtn"
+          class="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+        >
+          Save
+        </button>
+      </form>
+
+      <table class="w-full border-2 border-gray-300 bg-white rounded-lg">
+        <thead class="bg-blue-500 text-white">
+          <tr>
+            <th class="py-2 px-4 border">#. No</th>
+            <th class="py-2 px-4 border">Name</th>
+            <th class="py-2 px-4 border">Last Name</th>
+            <th class="py-2 px-4 border">Age</th>
+            <th class="py-2 px-4 border">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="dataTable" class="text-gray-700"></tbody>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
