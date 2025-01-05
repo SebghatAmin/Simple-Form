@@ -3,78 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="output.css" rel="stylesheet" />
-    <title>Simple Form</title>
+    <title>Simp tailwindCSS and JavaScript Form</title>
+    <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="min-h-screen bg-gray-100 text-gray-800">
-    <div class="container mx-auto p-6">
-      <h1 class="text-2xl font-bold text-center mb-6">
-        Simple Form and Table with Tailwind CSS and JavaScript
-      </h1>
-
-      <form
-        id="dataForm"
-        class="p-4 border-2 border-gray-300 rounded-lg mb-6 bg-white"
-      >
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label for="name" class="block font-semibold mb-1">Name</label>
-            <input
-              type="text"
-              id="name"
-              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
-              placeholder="Enter first name"
-            />
-          </div>
-
-          <div>
-            <label for="lastName" class="block font-semibold mb-1"
-              >Last Name</label
-            >
-            <input
-              type="text"
-              id="lastName"
-              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
-              placeholder="Enter last name"
-            />
-          </div>
-
-          <div>
-            <label for="age" class="block font-semibold mb-1">Age</label>
-            <input
-              type="number"
-              id="age"
-              class="w-full border-2 border-gray-300 rounded-md p-2 focus:outline-none"
-              placeholder="Enter age"
-              min="1"
-            />
-          </div>
-        </div>
-
-        <button
-          type="button"
-          id="addDataBtn"
-          class="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-        >
-          Save
-        </button>
+  <body>
+    <div class="container flex gap-4 bg-gray-700">
+      <form class="border bg-orange-500" id="inputForm">
+        <span>Name</span><br />
+        <input id="name" class="border outline-none" type="text" /><br />
+        <span>Last Name</span><br />
+        <input id="lastName" class="border outline-none" type="text" /><br />
+        <span>Age</span><br />
+        <input id="age" class="border outline-none" type="number" /><br />
+        <button id="SaveBtn" type="button">Save</button>
       </form>
-
-      <table class="w-full border-2 border-gray-300 bg-white rounded-lg">
-        <thead class="bg-blue-500 text-white">
-          <tr>
-            <th class="py-2 px-4 border">#. No</th>
-            <th class="py-2 px-4 border">Name</th>
-            <th class="py-2 px-4 border">Last Name</th>
-            <th class="py-2 px-4 border">Age</th>
-            <th class="py-2 px-4 border">Actions</th>
+      <table id="tableData" class="border bg-slate-500 w-full">
+        <thead class="border w-full">
+          <tr class="border w-full">
+            <td class="border w-52">#.No</td>
+            <td class="border w-52">Name</td>
+            <td class="border w-52">Last Name</td>
+            <td class="border w-52">Age</td>
+            <td class="border w-52">Action</td>
           </tr>
         </thead>
-
-        <tbody id="dataTable" class="text-gray-700"></tbody>
+        <tbody id="tableBody" class="border w-full"></tbody>
       </table>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
