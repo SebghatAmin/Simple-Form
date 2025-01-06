@@ -6,17 +6,17 @@
     <title>Simp tailwindCSS and JavaScript Form</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body>
-    <div class="container flex gap-4 bg-gray-700">
-      <form class="border bg-orange-500" id="inputForm">
-        <span>Name</span><br />
-        <input id="name" class="border outline-none" type="text" /><br />
-        <span>Last Name</span><br />
-        <input id="lastName" class="border outline-none" type="text" /><br />
-        <span>Age</span><br />
-        <input id="age" class="border outline-none" type="number" /><br />
-        <button id="SaveBtn" type="button">Save</button>
-      </form>
+  <body class="flex gap-20 bg-blue-500">
+    <form class="border w-56 h-60 inline-block bg-orange-500" id="inputForm">
+      <span>Name</span><br />
+      <input id="name" class="border outline-none" type="text" /><br />
+      <span>Last Name</span><br />
+      <input id="lastName" class="border outline-none" type="text" /><br />
+      <span>Age</span><br />
+      <input id="age" class="border outline-none" type="number" /><br />
+      <button id="SaveBtn" type="button">Save</button>
+    </form>
+    <div class="container bg-gray-700 w-auto">
       <table id="tableData" class="border bg-slate-500 w-full">
         <thead class="border w-full">
           <tr class="border w-full">
