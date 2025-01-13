@@ -16,34 +16,32 @@ function dataStore() {
     alert("please fill out the form");
   } else {
     renderTable();
-    
   }
-
-  function renderTable() {
-    tableBody.innerHTML = "";
-    // console.log(library);
-    library.forEach(function rowPrint(itm, idx) {
-      const rows = `<tr class="w-full rounded border">
-    <td class="w-52 rounded-md border">${idx + 1}</td>
-    <td class="w-52 rounded-md border">${itm.bookName}</td>
-    <td class="w-52 rounded-md border">${itm.author}</td>
-    <td class="w-52 rounded-md border">${itm.price}</td>
-    <td class="w-52 rounded-md border">
-    <button class="bg-orange-500 rounded" onClick="${edit(idx)}">Edit</button>
-    <button class="bg-red-600 rounded" onClick="${remove(idx)}">Delete</button>
-    </td>
-  </tr>`;
-      dataTable.insertAdjacentHTML("beforeend", rows);
-    });
-  }
-
-
+}
+function renderTable() {
+  tableBody.innerHTML = "";
+  // console.log(library);
+  library.forEach(function rowPrint(itm, idx) {
+    const rows = `<tr class="w-full rounded border">
+  <td class="w-52 rounded-md border">${idx + 1}</td>
+  <td class="w-52 rounded-md border">${itm.bookName}</td>
+  <td class="w-52 rounded-md border">${itm.author}</td>
+  <td class="w-52 rounded-md border">${itm.price}</td>
+  <td class="w-52 rounded-md border">
+  <button class="bg-orange-500 rounded" onClick="edit('${idx}')">Edit</button>
+  <button class="bg-red-600 rounded" onClick="remove()">Delete</button>
+  </td>
+</tr>`;
+    dataTable.insertAdjacentHTML("beforeend", rows);
+  });
 }
 
 function remove() {
-  console.log("hi");
+  library.splice(0, 1);
+  renderTable();
 }
 
-function edit() {
-  console.log("hi");
+function edit(id) {
+  let selected_library = library[id];
+  console.log(selected_library);
 }
