@@ -3,31 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simp tailwindCSS and JavaScript Form</title>
+    <title>Simple tailwindCSS and JavaScript Form</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="flex gap-20 bg-blue-500">
-    <form class="border w-56 h-60 inline-block bg-orange-500" id="inputForm">
-      <span>Name</span><br />
-      <input id="name" class="border outline-none" type="text" /><br />
-      <span>Last Name</span><br />
-      <input id="lastName" class="border outline-none" type="text" /><br />
-      <span>Age</span><br />
-      <input id="age" class="border outline-none" type="number" /><br />
-      <button id="SaveBtn" type="button">Save</button>
+  <body class="flex gap-20 p-10 bg-blue-500">
+    <form
+      class="border w-96 p-2 h-60 flex flex-col gap-1 bg-slate-400 rounded-md"
+      id="inputForm"
+    >
+      <span class="font-semibold">Book Name</span>
+      <input
+        id="name"
+        class="border outline-none bg-slate-300 rounded"
+        type="text"
+        placeholder="Please enter book name"
+      />
+      <span class="font-semibold">Author</span>
+      <input
+        id="author"
+        class="border outline-none bg-slate-300 rounded"
+        type="text"
+        placeholder="Please enter author's name"
+      />
+      <span class="font-semibold">Price</span>
+      <input
+        id="price"
+        class="border outline-none bg-slate-300 rounded"
+        type="number"
+        placeholder="Please enter book price"
+      />
+
+      <button id="SaveBtn" class="bg-orange-600 rounded" type="button">
+        Save
+      </button>
     </form>
-    <div class="container bg-gray-700 w-auto">
-      <table id="tableData" class="border bg-slate-500 w-full">
-        <thead class="border w-full">
-          <tr class="border w-full">
-            <td class="border w-52">#.No</td>
-            <td class="border w-52">Name</td>
-            <td class="border w-52">Last Name</td>
-            <td class="border w-52">Age</td>
-            <td class="border w-52">Action</td>
+
+    <div class="container bg-gray-700 w-auto rounded border">
+      <table id="tableData" class="bg-slate-500 w-full rounded border">
+        <thead class="w-full rounded border">
+          <tr class="w-full rounded border">
+            <td class="w-52 rounded-md border">#.No</td>
+            <td class="w-52 rounded-md border">Book Name</td>
+            <td class="w-52 rounded-md border">Author</td>
+            <td class="w-52 rounded-md border">Price</td>
+            <td class="w-52 rounded-md border">Action</td>
           </tr>
         </thead>
-        <tbody id="tableBody" class="border w-full"></tbody>
+        <tbody
+          id="tableBody"
+          class="w-full bg-slate-300 rounded-md border"
+        ></tbody>
       </table>
     </div>
     <script src="script.js"></script>

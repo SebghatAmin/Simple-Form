@@ -1,41 +1,49 @@
-const inputForm = document.getElementById("inputForm");
-const tableBody = document.getElementById("tableBody");
-const SaveBtn = document.getElementById("SaveBtn");
+const inputForm = document.querySelector("#inputForm");
+const saveBtn = document.querySelector("#SaveBtn");
+const dataTable = document.querySelector("#tableBody");
 
-const customers = [];
-SaveBtn.addEventListener("click", store);
+const library = [];
 
-/**
- * @description function index used for generate rows on table based on cu
- * customers array
- */
-function index() {
-  tableBody.innerHTML = ""; // delete all rows before iteration
-  customers.forEach(function listing(details, idx) {
-    console.log(details);
-    tableBody.innerHTML += `<tr class="border w-full">
-            <td class="border w-52">${idx + 1}</td>
-            <td class="border w-52">${details.name}</td>
-            <td class="border w-52">${details.lastName}</td>
-            <td class="border w-52">${details.age}</td>
-            <td class="border w-52">
-              <button class="bg-neutral-600" onclick="edit(${idx})">Edit</button>
-              <button class="bg-neutral-600">Delete</button>
-            </td>
-          </tr>`;
-    // tableBody.insertAdjacentHTML("beforeend", rows);
-  });
+let globleIndex = -1;
+saveBtn.addEventListener("click", dataStore);
+function dataStore() {
+  const bookName = document.getElementById("name").value;
+  const author = document.getElementById("author").value;
+  const price = document.getElementById("price").value;
+  library.push({ bookName, author, price });
+
+  if (!bookName || !author || !price) {
+    alert("please fill out the form");
+  } else {
+    renderTable();
+    
+  }
+
+  function renderTable() {
+    tableBody.innerHTML = "";
+    // console.log(library);
+    library.forEach(function rowPrint(itm, idx) {
+      const rows = `<tr class="w-full rounded border">
+    <td class="w-52 rounded-md border">${idx + 1}</td>
+    <td class="w-52 rounded-md border">${itm.bookName}</td>
+    <td class="w-52 rounded-md border">${itm.author}</td>
+    <td class="w-52 rounded-md border">${itm.price}</td>
+    <td class="w-52 rounded-md border">
+    <button class="bg-orange-500 rounded" onClick="${edit(idx)}">Edit</button>
+    <button class="bg-red-600 rounded" onClick="${remove(idx)}">Delete</button>
+    </td>
+  </tr>`;
+      dataTable.insertAdjacentHTML("beforeend", rows);
+    });
+  }
+
+
 }
-function store() {
-  const fname = document.getElementById("name").value;
-  const lastName = document.getElementById("lastName").value;
-  const age = document.getElementById("age").value;
-  customers.push({ name: fname, lastName, age });
-  console.log(customers);
 
-  // inputForm.reset();
-  index();
+function remove() {
+  console.log("hi");
 }
-function edit(index) {
-  console.log("first", index);
+
+function edit() {
+  console.log("hi");
 }
