@@ -4,8 +4,10 @@ const dataTable = document.querySelector("#tableBody");
 
 const library = [];
 
-let globleIndex = -1;
+let globalIndex = -1;
+
 saveBtn.addEventListener("click", dataStore);
+
 function dataStore() {
   const bookName = document.getElementById("name").value;
   const author = document.getElementById("author").value;
@@ -19,7 +21,7 @@ function dataStore() {
   }
 }
 function renderTable() {
-  tableBody.innerHTML = "";
+  dataTable.innerHTML = "";
   // console.log(library);
   library.forEach(function rowPrint(itm, idx) {
     const rows = `<tr class="w-full rounded border">
@@ -42,6 +44,10 @@ function remove() {
 }
 
 function edit(id) {
-  let selected_library = library[id];
-  console.log(selected_library);
+  let selectedRow = library[id];
+  document.getElementById("name").value = selectedRow.bookName;
+  document.getElementById("author").value = selectedRow.author;
+  document.getElementById("price").value = selectedRow.price;
+  library.splice(id, globalIndex);
+  renderTable();
 }
