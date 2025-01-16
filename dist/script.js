@@ -48,6 +48,6 @@ function edit(id) {
   document.getElementById("name").value = selectedRow.bookName;
   document.getElementById("author").value = selectedRow.author;
   document.getElementById("price").value = selectedRow.price;
-  library.splice(id, globalIndex);
   renderTable();
+  //I don't know what to do
 }
