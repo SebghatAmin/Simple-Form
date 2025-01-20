@@ -17,7 +17,7 @@ function dataStore() {
     alert("Please fill out the form");
     return;
   }
-
+  console.log("Global Index :", globalIndex);
   if (globalIndex > -1) {
     library[globalIndex] = { bookName, author, price };
     globalIndex = -1;
@@ -25,6 +25,8 @@ function dataStore() {
   } else {
     library.push({ bookName, author, price });
   }
+
+  saveBtn.classList.add("visible");
 
   inputForm.reset();
   renderTable();
@@ -53,11 +55,21 @@ function remove(idx) {
   renderTable();
 }
 
-function edit(idx) {
-  const selectedRow = library[idx];
+function edit(id) {
+  const selectedRow = library[id];
   document.getElementById("name").value = selectedRow.bookName;
   document.getElementById("author").value = selectedRow.author;
   document.getElementById("price").value = selectedRow.price;
-  globalIndex = idx;
-  saveBtn.textContent = "Update";
+  globalIndex = id;
+  saveBtn.classList.add("invisible");
+  update();
 }
+
+const editButton = document.getElementById("update");
+function update() {
+  editButton.classList.remove("invisible");
+  // library.push({ bookName, author, price });
+  renderTable();
+}
+
+editButton.addEventListener("click", dataStore);
