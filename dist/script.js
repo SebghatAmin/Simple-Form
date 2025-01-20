@@ -1,59 +1,75 @@
-const dataForm = document.querySelector("#dataForm");
-const addDataBtn = document.querySelector("#addDataBtn");
-const dataTable = document.querySelector("#dataTable");
+const inputForm = document.querySelector("#inputForm");
+const saveBtn = document.querySelector("#SaveBtn");
+const dataTable = document.querySelector("#tableBody");
 
-let collection = [];
+const library = [];
 
-addDataBtn.addEventListener("click", () => {
-  const name = document.querySelector("#name").value.trim();
-  const lastName = document.querySelector("#lastName").value.trim();
-  const age = document.querySelector("#age").value.trim();
+let globalIndex = -1;
 
-  if (!name || !lastName || !age) {
-    alert("Please fill out all the fields!");
+saveBtn.addEventListener("click", dataStore);
+
+function dataStore() {
+  const bookName = document.getElementById("name").value;
+  const author = document.getElementById("author").value;
+  const price = document.getElementById("price").value;
+
+  if (!bookName || !author || !price) {
+    alert("Please fill out the form");
     return;
   }
+  console.log("Global Index :", globalIndex);
+  if (globalIndex > -1) {
+    library[globalIndex] = { bookName, author, price };
+    globalIndex = -1;
+    saveBtn.textContent = "Save";
+  } else {
+    library.push({ bookName, author, price });
+  }
 
-  collection.push({ name, lastName, age });
+  saveBtn.classList.add("visible");
 
-  dataForm.reset();
-
+  inputForm.reset();
   renderTable();
-});
+}
 
 function renderTable() {
   dataTable.innerHTML = "";
 
-  collection.forEach((item, index) => {
-    const row = `
-      <tr class="border">
-        <td class="py-2 px-4 border text-center">${index + 1}</td>
-        <td class="py-2 px-4 border text-center">${item.name}</td>
-        <td class="py-2 px-4 border text-center">${item.lastName}</td>
-        <td class="py-2 px-4 border text-center">${item.age}</td>
-        <td class="py-2 px-4 border text-center">
-          <button class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600" onclick="editRow(${index})">Edit</button>
-          <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600" onclick="deleteRow(${index})">Delete</button>
-        </td>
-      </tr>
-    `;
-    dataTable.insertAdjacentHTML("beforeend", row);
+  library.forEach((item, idx) => {
+    const rows = `<tr class="w-full rounded border">
+      <td class="w-52 rounded-md border">${idx + 1}</td>
+      <td class="w-52 rounded-md border">${item.bookName}</td>
+      <td class="w-52 rounded-md border">${item.author}</td>
+      <td class="w-52 rounded-md border">${item.price}</td>
+      <td class="w-52 rounded-md border">
+        <button class="bg-orange-500 rounded" onClick="edit(${idx})">Edit</button>
+        <button class="bg-red-600 rounded" onClick="remove(${idx})">Delete</button>
+      </td>
+    </tr>`;
+    dataTable.insertAdjacentHTML("beforeend", rows);
   });
 }
 
-function deleteRow(index) {
-  collection.splice(index, 1);
-
+function remove(idx) {
+  library.splice(idx, 1);
   renderTable();
 }
 
-function editRow(index) {
-  const item = collection[index];
-  document.querySelector("#name").value = item.name;
-  document.querySelector("#lastName").value = item.lastName;
-  document.querySelector("#age").value = item.age;
+function edit(id) {
+  const selectedRow = library[id];
+  document.getElementById("name").value = selectedRow.bookName;
+  document.getElementById("author").value = selectedRow.author;
+  document.getElementById("price").value = selectedRow.price;
+  globalIndex = id;
+  saveBtn.classList.add("invisible");
+  update();
+}
 
-  collection.splice(index, 1);
-
+const editButton = document.getElementById("update");
+function update() {
+  editButton.classList.remove("invisible");
+  // library.push({ bookName, author, price });
   renderTable();
 }
+
+editButton.addEventListener("click", dataStore);
