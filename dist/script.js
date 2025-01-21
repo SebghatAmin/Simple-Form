@@ -4,7 +4,7 @@ const dataTable = document.querySelector("#tableBody");
 
 const library = [];
 
-let globalIndex = -1;
+// let globalIndex = -1;
 
 saveBtn.addEventListener("click", dataStore);
 
@@ -17,19 +17,19 @@ function dataStore() {
     alert("Please fill out the form");
     return;
   }
-  console.log("Global Index :", globalIndex);
-  if (globalIndex > -1) {
-    library[globalIndex] = { bookName, author, price };
-    globalIndex = -1;
-    saveBtn.textContent = "Save";
-  } else {
-    library.push({ bookName, author, price });
-  }
-
-  saveBtn.classList.add("visible");
+  // console.log("Global Index :", globalIndex);
+  // if (globalIndex > -1) {
+  //   library[globalIndex] = { bookName, author, price };
+  //   globalIndex = -1;
+  //   saveBtn.textContent = "Save";
+  // } else {
+  library.push({ bookName, author, price });
+  // }
 
   inputForm.reset();
   renderTable();
+  // updateBtn.classList.add("hidden");
+  // saveBtn.classList.remove("hidden");
 }
 
 function renderTable() {
@@ -54,22 +54,31 @@ function remove(idx) {
   library.splice(idx, 1);
   renderTable();
 }
-
+let index = 0;
 function edit(id) {
   const selectedRow = library[id];
   document.getElementById("name").value = selectedRow.bookName;
   document.getElementById("author").value = selectedRow.author;
   document.getElementById("price").value = selectedRow.price;
-  globalIndex = id;
-  saveBtn.classList.add("invisible");
-  update();
+  saveBtn.classList.add("hidden");
+  updateBtn.classList.remove("hidden");
+  index = id;
 }
 
-const editButton = document.getElementById("update");
-function update() {
-  editButton.classList.remove("invisible");
-  // library.push({ bookName, author, price });
-  renderTable();
+const updateBtn = document.getElementById("update");
+function update(index, name, author, price) {
+  console.log("index :", index);
+  console.log("name :", name);
+  console.log("author :", author);
+  console.log("price :", price);
+  // renderTable();
 }
 
-editButton.addEventListener("click", dataStore);
+updateBtn.addEventListener("click", function () {
+  update(
+    index,
+    document.getElementById("name").value,
+    document.getElementById("author").value,
+    document.getElementById("price").value
+  );
+});
