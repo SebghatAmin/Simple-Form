@@ -3,11 +3,7 @@ const saveBtn = document.querySelector("#SaveBtn");
 const dataTable = document.querySelector("#tableBody");
 
 const library = [];
-
-// let globalIndex = -1;
-
 saveBtn.addEventListener("click", dataStore);
-
 function dataStore() {
   const bookName = document.getElementById("name").value;
   const author = document.getElementById("author").value;
@@ -17,19 +13,9 @@ function dataStore() {
     alert("Please fill out the form");
     return;
   }
-  // console.log("Global Index :", globalIndex);
-  // if (globalIndex > -1) {
-  //   library[globalIndex] = { bookName, author, price };
-  //   globalIndex = -1;
-  //   saveBtn.textContent = "Save";
-  // } else {
   library.push({ bookName, author, price });
-  // }
-
   inputForm.reset();
   renderTable();
-  // updateBtn.classList.add("hidden");
-  // saveBtn.classList.remove("hidden");
 }
 
 function renderTable() {
@@ -67,11 +53,13 @@ function edit(id) {
 
 const updateBtn = document.getElementById("update");
 function update(index, name, author, price) {
-  console.log("index :", index);
-  console.log("name :", name);
-  console.log("author :", author);
-  console.log("price :", price);
-  // renderTable();
+  library[index].bookName = name;
+  library[index].author = author;
+  library[index].price = price;
+  renderTable();
+  saveBtn.classList.remove("hidden");
+  updateBtn.classList.add("hidden");
+  inputForm.reset();
 }
 
 updateBtn.addEventListener("click", function () {
