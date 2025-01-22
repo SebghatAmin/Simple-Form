@@ -3,11 +3,7 @@ const saveBtn = document.querySelector("#SaveBtn");
 const dataTable = document.querySelector("#tableBody");
 
 const library = [];
-
-let globalIndex = -1;
-
 saveBtn.addEventListener("click", dataStore);
-
 function dataStore() {
   const bookName = document.getElementById("name").value;
   const author = document.getElementById("author").value;
@@ -17,17 +13,7 @@ function dataStore() {
     alert("Please fill out the form");
     return;
   }
-  console.log("Global Index :", globalIndex);
-  if (globalIndex > -1) {
-    library[globalIndex] = { bookName, author, price };
-    globalIndex = -1;
-    saveBtn.textContent = "Save";
-  } else {
-    library.push({ bookName, author, price });
-  }
-
-  saveBtn.classList.add("visible");
-
+  library.push({ bookName, author, price });
   inputForm.reset();
   renderTable();
 }
@@ -54,22 +40,33 @@ function remove(idx) {
   library.splice(idx, 1);
   renderTable();
 }
-
+let index = 0;
 function edit(id) {
   const selectedRow = library[id];
   document.getElementById("name").value = selectedRow.bookName;
   document.getElementById("author").value = selectedRow.author;
   document.getElementById("price").value = selectedRow.price;
-  globalIndex = id;
-  saveBtn.classList.add("invisible");
-  update();
+  saveBtn.classList.add("hidden");
+  updateBtn.classList.remove("hidden");
+  index = id;
 }
 
-const editButton = document.getElementById("update");
-function update() {
-  editButton.classList.remove("invisible");
-  // library.push({ bookName, author, price });
+const updateBtn = document.getElementById("update");
+function update(index, name, author, price) {
+  library[index].bookName = name;
+  library[index].author = author;
+  library[index].price = price;
   renderTable();
+  saveBtn.classList.remove("hidden");
+  updateBtn.classList.add("hidden");
+  inputForm.reset();
 }
 
-editButton.addEventListener("click", dataStore);
+updateBtn.addEventListener("click", function () {
+  update(
+    index,
+    document.getElementById("name").value,
+    document.getElementById("author").value,
+    document.getElementById("price").value
+  );
+});
