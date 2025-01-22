@@ -6,11 +6,16 @@
     <title>Simple tailwindCSS and JavaScript Form</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="flex gap-20 p-10 bg-blue-500">
+  <body class="flex gap-10 p-10 bg-cyan-900">
     <form
-      class="border w-96 p-2 h-60 flex flex-col gap-1 bg-slate-400 rounded-md"
+      class="border w-[600px] p-1 h-auto flex flex-col gap-2 bg-orange-500 rounded-md"
       id="inputForm"
     >
+      <h1
+        class="font-serif bold text-gray-700 text-center w-full bg-orange-700 rounded"
+      >
+        Book Registration form
+      </h1>
       <span class="font-semibold">Book Name</span>
       <input
         id="name"
@@ -32,10 +37,22 @@
         type="number"
         placeholder="Please enter book price"
       />
+      <span class="font-semibold">Book type</span>
+
+      <select
+        placeholder="Please choose book type"
+        id="selectBox"
+        class="border outline-none bg-slate-300 rounded"
+      >
+        <option>Psychology</option>
+        <option>Math</option>
+        <option>Biology</option>
+        <option>Programming</option>
+      </select>
 
       <button
-        id="SaveBtn"
-        class="bg-orange-600 rounded"
+        id="saveBtn"
+        class="bg-orange-950 rounded h-9 mt-1 text-white"
         type="button"
         onclick="lib.store()"
       >
@@ -46,14 +63,15 @@
       </button>
     </form>
 
-    <div class="container bg-gray-700 w-auto rounded border">
-      <table id="tableData" class="bg-slate-500 w-full rounded border">
+    <div class="container bg-orange-600 w-auto rounded border">
+      <table id="tableData" class="bg-amber-300 w-full rounded border">
         <thead class="w-full rounded border">
           <tr class="w-full rounded border">
             <td class="w-52 rounded-md border">#.No</td>
             <td class="w-52 rounded-md border">Book Name</td>
             <td class="w-52 rounded-md border">Author</td>
             <td class="w-52 rounded-md border">Price</td>
+            <td class="w-52 rounded-md border">Type</td>
             <td class="w-52 rounded-md border">Action</td>
           </tr>
         </thead>
