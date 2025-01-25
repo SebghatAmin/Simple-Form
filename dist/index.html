@@ -38,7 +38,6 @@
         placeholder="Please enter book price"
       />
       <span class="font-semibold">Book type</span>
-
       <select
         placeholder="Please choose book type"
         id="selectBox"
@@ -49,7 +48,28 @@
         <option>Biology</option>
         <option>Programming</option>
       </select>
-
+      <div class="flex flex-row">
+        <label class="font-semibold w-[220px]" for="illegal"
+          >This is an illegal book</span
+        >
+        <input
+          id="illegal"
+          class="border bg-slate-300 h-8 w-8"
+          type="radio"
+          name="bookligitimicy"
+          value="legal"
+        />
+        <label class="font-semibold w-[220px]" for="legal"
+          >This is a legal book</span
+        >
+        <input
+          id="legal"
+          class="border bg-slate-300 h-8 w-8"
+          type="radio"
+          name="bookligitimicy"
+          value="illegal"
+        />
+      </div>
       <button
         id="saveBtn"
         class="bg-orange-950 rounded h-9 mt-1 text-white"
@@ -72,6 +92,7 @@
             <td class="w-52 rounded-md border">Author</td>
             <td class="w-52 rounded-md border">Price</td>
             <td class="w-52 rounded-md border">Type</td>
+            <td class="w-52 rounded-md border">Is Legal</td>
             <td class="w-52 rounded-md border">Action</td>
           </tr>
         </thead>
