@@ -33,10 +33,6 @@ class Library {
     });
   }
   store() {
-    console.log("-------------", this.inputForm.selectBox.value);
-    this.inputForm.price.value = 8979879;
-    this.inputForm.bookligitimicy.value = "legal";
-    console.log("000000000000000", this.inputForm.bookligitimicy.value);
     if (
       !this.inputForm.name?.value ||
       !this.inputForm.author?.value ||
