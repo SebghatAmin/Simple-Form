@@ -6,101 +6,108 @@
     <title>Simple tailwindCSS and JavaScript Form</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="flex gap-10 p-10 bg-[#eee7eb]">
-    <form
-      class="border w-[600px] p-1 h-auto flex flex-col gap-2 bg-[#232959] rounded-md"
-      id="inputForm"
+  <body class="p-10 bg-[#fefeff]">
+    <div
+      class="gap-10 p-10 bg-[#fefeff] h-auto w-auto flex shadow-[0px_0px_10px_5px_rgba(0,_255,_255,_0.7)]"
     >
-      <h1
-        class="font-serif bold text-gray-700 text-center w-full bg-[#e73720] rounded"
+      <form
+        class="border w-[600px] p-7 h-auto flex flex-col gap-2 shadow-[0px_0px_40px_0px_rgba(138,_43,_226,_0.4)] rounded-md"
+        id="inputForm"
       >
-        Book Registration form
-      </h1>
-      <span class="font-semibold">Book Name</span>
-      <input
-        id="name"
-        class="border outline-none bg-slate-300 rounded"
-        type="text"
-        placeholder="Please enter book name"
-      />
-      <span class="font-semibold">Author</span>
-      <input
-        id="author"
-        class="border outline-none bg-slate-300 rounded"
-        type="text"
-        placeholder="Please enter author's name"
-      />
-      <span class="font-semibold">Price</span>
-      <input
-        id="price"
-        class="border outline-none bg-slate-300 rounded"
-        type="number"
-        placeholder="Please enter book price"
-      />
-      <span class="font-semibold">Book type</span>
-      <select
-        placeholder="Please choose book type"
-        id="selectBox"
-        class="border outline-none bg-slate-300 rounded"
-      >
-        <option>Psychology</option>
-        <option>Math</option>
-        <option>Biology</option>
-        <option>Programming</option>
-      </select>
-      <div class="flex flex-row">
-        <label class="font-semibold w-[220px]" for="illegal"
-          >This is an illegal book</label
+        <h1
+          class="font-serif bold text-gray-700 text-center w-full bg-[#f5080a] rounded"
         >
+          Book Registration form
+        </h1>
+        <span class="font-semibold">Book Name</span>
         <input
-          id="illegal"
-          class="border bg-slate-300 h-8 w-8"
-          type="radio"
-          name="bookligitimicy"
-          value="legal"
+          id="name"
+          class="border outline-none bg-slate-300 rounded"
+          type="text"
+          placeholder="Please enter book name"
         />
-        <label class="font-semibold w-[220px]" for="legal"
-          >This is a legal book</label
+        <span class="font-semibold">Author</span>
+        <input
+          id="author"
+          class="border outline-none bg-slate-300 rounded"
+          type="text"
+          placeholder="Please enter author's name"
+        />
+        <span class="font-semibold">Price</span>
+        <input
+          id="price"
+          class="border outline-none bg-slate-300 rounded"
+          type="number"
+          placeholder="Please enter book price"
+        />
+        <span class="font-semibold">Book type</span>
+        <select
+          placeholder="Please choose book type"
+          id="selectBox"
+          class="border outline-none bg-slate-300 rounded"
         >
-        <input
-          id="legal"
-          class="border bg-slate-300 h-8 w-8"
-          type="radio"
-          name="bookligitimicy"
-          value="illegal"
-        />
-      </div>
-      <button
-        id="saveBtn"
-        class="bg-orange-950 rounded h-9 mt-1 text-white"
-        type="button"
-        onclick="lib.store()"
-      >
-        Save
-      </button>
-      <button id="update" class="bg-[#d6a539] hidden rounded" type="button">
-        update
-      </button>
-    </form>
+          <option>Psychology</option>
+          <option>Math</option>
+          <option>Biology</option>
+          <option>Programming</option>
+        </select>
+        <div class="flex flex-row">
+          <label class="font-semibold w-[220px]" for="illegal"
+            >This is an illegal book</label
+          >
+          <input
+            id="illegal"
+            class="border bg-slate-300 h-8 w-8"
+            type="radio"
+            name="bookligitimicy"
+            value="legal"
+          />
+          <label class="font-semibold w-[220px]" for="legal"
+            >This is a legal book</label
+          >
+          <input
+            id="legal"
+            class="border bg-slate-300 h-8 w-8"
+            type="radio"
+            name="bookligitimicy"
+            value="illegal"
+          />
+        </div>
+        <button
+          id="saveBtn"
+          class="bg-[#f5080a] rounded h-9 mt-1 text-white"
+          type="button"
+          onclick="lib.store()"
+        >
+          Save
+        </button>
+        <button id="update" class="bg-[#f5080a] hidden rounded" type="button">
+          update
+        </button>
+      </form>
 
-    <div class="container bg-[#e73720] w-auto rounded border">
-      <table id="tableData" class="bg-amber-300 w-full rounded border">
-        <thead class="w-full rounded border">
-          <tr class="w-full rounded border">
-            <td class="w-52 rounded-md border">#.No</td>
-            <td class="w-52 rounded-md border">Book Name</td>
-            <td class="w-52 rounded-md border">Author</td>
-            <td class="w-52 rounded-md border">Price</td>
-            <td class="w-52 rounded-md border">Type</td>
-            <td class="w-52 rounded-md border">Is Legal</td>
-            <td class="w-52 rounded-md border">Action</td>
-          </tr>
-        </thead>
-        <tbody
-          id="tableBody"
-          class="w-full bg-slate-300 rounded-md border"
-        ></tbody>
-      </table>
+      <div class="container w-auto rounded border shadow-">
+        <table
+          id="tableData"
+          class="bg-[#f5080a] shadow-[0px_10px_20px_0px_rgba(0,_0,_0,_0.1)] border-x border-y w-full rounded border"
+        >
+          <thead class="w-full rounded border">
+            <tr class="w-full rounded border">
+              <td class="w-52 rounded-md border">#.No</td>
+              <td class="w-52 rounded-md border">Book Name</td>
+              <td class="w-52 rounded-md border">Author</td>
+              <td class="w-52 rounded-md border">Price</td>
+              <td class="w-52 rounded-md border">Type</td>
+              <td class="w-52 rounded-md border">Is Legal</td>
+              <td class="w-52 rounded-md border">Action</td>
+            </tr>
+          </thead>
+          <tbody
+            id="tableBody"
+            class="w-full bg-slate-300 rounded-md border"
+          ></tbody>
+        </table>
+      </div>
     </div>
     <script src="class_scripts.js"></script>
   </body>

@@ -1,15 +1,18 @@
 class Library {
   constructor() {
     this.libraries = [];
-    this.type = document.querySelector("#selectBox");
     this.dataTable = document.querySelector("#tableBody");
-    this.bookName = document.getElementById("name");
-    this.author = document.getElementById("author");
-    this.price = document.getElementById("price");
     this.inputForm = document.querySelector("#inputForm");
-    this.update_record_index = -1;
-    this.saveBtn = document.getElementById("saveBtn");
-    this.legalCheck = document.getElementsByName("bookligitimicy");
+
+    // this.inputForm.price = document.querySelector("#selectBox");
+    // this.bookName = document.getElementById("name");
+    // this.inputForm.author = document.getElementById("author");
+    // this.inputForm.price = document.getElementById("price");
+    // this.update_record_index = -1;
+    // this.saveBtn = document.getElementById("saveBtn");
+    // this.inputForm.bookligitimicy = document.querySelector(
+    //   "input[type='radio'][name='bookligitimicy']"
+    // );
   }
   index() {
     this.dataTable.innerHTML = "";
@@ -30,22 +33,26 @@ class Library {
     });
   }
   store() {
+    console.log("-------------", this.inputForm.selectBox.value);
+    this.inputForm.price.value = 8979879;
+    this.inputForm.bookligitimicy.value = "legal";
+    console.log("000000000000000", this.inputForm.bookligitimicy.value);
     if (
-      !this.bookName?.value ||
-      !this.author?.value ||
-      !this.price?.value ||
-      !this.type?.value ||
-      !this.legalCheck?.value
+      !this.inputForm.name?.value ||
+      !this.inputForm.author?.value ||
+      !this.inputForm.price?.value ||
+      !this.inputForm.price?.value ||
+      !this.inputForm.bookligitimicy.value
     ) {
       alert("Please fill out the form");
       return;
     }
     const data = {
-      bookName: this.bookName.value,
-      author: this.author.value,
-      price: this.price.value,
-      type: this.type.value,
-      legalCheck: this.legalCheck.value,
+      bookName: this.inputForm.name.value,
+      author: this.inputForm.author.value,
+      price: this.inputForm.price.value,
+      type: this.inputForm.price.value,
+      legalCheck: this.inputForm.bookligitimicy.value,
     };
     if (this.update_record_index > -1) {
       this.libraries.splice(this.update_record_index, 1, data);
@@ -59,12 +66,12 @@ class Library {
   }
   edit(index) {
     this.update_record_index = index;
-    const { bookName, author, price, type, legalCheck } = this.libraries[index];
-    this.bookName.value = bookName;
-    this.author.value = author;
-    this.price.value = price;
-    this.type.value = type;
-    this.legalCheck.value = legalCheck;
+    const { bookName, author, price, type, legalCheck } = this.libraries[index]; //distruct object
+    this.inputForm.name.value = bookName;
+    this.inputForm.author.value = author;
+    this.inputForm.price.value = price;
+    this.inputForm.price.value = type;
+    this.inputForm.bookligitimicy.value = legalCheck;
     this.saveBtn.innerText = "Update";
   }
   destroy(index) {
