@@ -6,13 +6,13 @@
     <title>Simple tailwindCSS and JavaScript Form</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="flex gap-10 p-10 bg-cyan-900">
+  <body class="flex gap-10 p-10 bg-[#eee7eb]">
     <form
-      class="border w-[600px] p-1 h-auto flex flex-col gap-2 bg-orange-500 rounded-md"
+      class="border w-[600px] p-1 h-auto flex flex-col gap-2 bg-[#232959] rounded-md"
       id="inputForm"
     >
       <h1
-        class="font-serif bold text-gray-700 text-center w-full bg-orange-700 rounded"
+        class="font-serif bold text-gray-700 text-center w-full bg-[#e73720] rounded"
       >
         Book Registration form
       </h1>
@@ -50,7 +50,7 @@
       </select>
       <div class="flex flex-row">
         <label class="font-semibold w-[220px]" for="illegal"
-          >This is an illegal book</span
+          >This is an illegal book</label
         >
         <input
           id="illegal"
@@ -60,7 +60,7 @@
           value="legal"
         />
         <label class="font-semibold w-[220px]" for="legal"
-          >This is a legal book</span
+          >This is a legal book</label
         >
         <input
           id="legal"
@@ -78,12 +78,12 @@
       >
         Save
       </button>
-      <button id="update" class="bg-orange-400 hidden rounded" type="button">
+      <button id="update" class="bg-[#d6a539] hidden rounded" type="button">
         update
       </button>
     </form>
 
-    <div class="container bg-orange-600 w-auto rounded border">
+    <div class="container bg-[#e73720] w-auto rounded border">
       <table id="tableData" class="bg-amber-300 w-full rounded border">
         <thead class="w-full rounded border">
           <tr class="w-full rounded border">
