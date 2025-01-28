@@ -15,7 +15,7 @@
         id="inputForm"
       >
         <h1
-          class="font-serif bold text-gray-700 text-center w-full bg-[#f5080a] rounded"
+          class="font-serif bold text-white text-center w-full bg-[#f5080a] rounded"
         >
           Book Registration form
         </h1>
@@ -60,7 +60,7 @@
             class="border bg-slate-300 h-8 w-8"
             type="radio"
             name="bookligitimicy"
-            value="legal"
+            value="illegal"
           />
           <label class="font-semibold w-[220px]" for="legal"
             >This is a legal book</label
@@ -70,8 +70,17 @@
             class="border bg-slate-300 h-8 w-8"
             type="radio"
             name="bookligitimicy"
-            value="illegal"
+            value="legal"
           />
+        </div>
+
+        <div>
+          <span class="font-semibold" for="Politics">Politics</span>
+          <input type="checkbox" id="Politics" name="multiple_choice" />
+          <span class="font-semibold" for="Economy">Economy</span>
+          <input type="checkbox" id="Economy" name="multiple_choice" />
+          <span class="font-semibold" for="Engineering">Engineering</span>
+          <input type="checkbox" id="Engineering" name="multiple_choice" />
         </div>
         <button
           id="saveBtn"
@@ -93,13 +102,13 @@
         >
           <thead class="w-full rounded border">
             <tr class="w-full rounded border">
-              <td class="w-52 rounded-md border">#.No</td>
-              <td class="w-52 rounded-md border">Book Name</td>
-              <td class="w-52 rounded-md border">Author</td>
-              <td class="w-52 rounded-md border">Price</td>
-              <td class="w-52 rounded-md border">Type</td>
-              <td class="w-52 rounded-md border">Is Legal</td>
-              <td class="w-52 rounded-md border">Action</td>
+              <td class="w-52 rounded-md border text-white">#.No</td>
+              <td class="w-52 rounded-md border text-white">Book Name</td>
+              <td class="w-52 rounded-md border text-white">Author</td>
+              <td class="w-52 rounded-md border text-white">Price</td>
+              <td class="w-52 rounded-md border text-white">Type</td>
+              <td class="w-52 rounded-md border text-white">Is Legal</td>
+              <td class="w-52 rounded-md border text-white">Action</td>
             </tr>
           </thead>
           <tbody

@@ -3,13 +3,11 @@ class Library {
     this.libraries = [];
     this.dataTable = document.querySelector("#tableBody");
     this.inputForm = document.querySelector("#inputForm");
-
-    // this.inputForm.price = document.querySelector("#selectBox");
     // this.bookName = document.getElementById("name");
     // this.inputForm.author = document.getElementById("author");
     // this.inputForm.price = document.getElementById("price");
-    // this.update_record_index = -1;
-    // this.saveBtn = document.getElementById("saveBtn");
+    this.update_record_index = -1;
+    this.saveBtn = document.getElementById("saveBtn");
     // this.inputForm.bookligitimicy = document.querySelector(
     //   "input[type='radio'][name='bookligitimicy']"
     // );
@@ -38,7 +36,7 @@ class Library {
       !this.inputForm.author?.value ||
       !this.inputForm.price?.value ||
       !this.inputForm.price?.value ||
-      !this.inputForm.bookligitimicy.value
+      !this.inputForm.bookligitimicy?.value
     ) {
       alert("Please fill out the form");
       return;
@@ -68,7 +66,9 @@ class Library {
     this.inputForm.price.value = price;
     this.inputForm.price.value = type;
     this.inputForm.bookligitimicy.value = legalCheck;
-    this.saveBtn.innerText = "Update";
+    this.saveBtn.innerText = "update";
+
+    // this.store();
   }
   destroy(index) {
     if (index > -1) this.libraries.splice(index, 1);
